@@ -5,8 +5,11 @@
  */
 package scoreboard;
 
-import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,7 +26,7 @@ public class Scoreboard extends Application {
     static BoardController board_controller;
     static EnterScoreController score_controller;
     // Stores all player information.
-    ArrayList<Score> scores;
+    ArrayList<Score> scores = new ArrayList<>();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -62,8 +65,11 @@ public class Scoreboard extends Application {
         Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
-        st_score.initStyle(StageStyle.UNDECORATED); // Includes false resize.
+        st_score.initStyle(StageStyle.UNIFIED); // Includes false resize.
         st_score.show();
+        
+        //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+        //System.setOut(out);
         
         sc_score.setOnKeyReleased(new KeyPressed());
     }
@@ -88,10 +94,6 @@ public class Scoreboard extends Application {
             }
         }
 //--------------------------------------------------------------
-        private void update_scores() {
-            System.out.println("Updating scores.");
-        }
-//--------------------------------------------------------------
     }
     class Add_Score implements EventHandler<ActionEvent> {
         @Override
@@ -109,7 +111,48 @@ public class Scoreboard extends Application {
         i = score_controller.get_initials();
         s = score_controller.get_score();
         
-        System.out.println(i + " " + s);
+//        Score entry = new Score(i, s);
+//        entry.print();
+//        scores.add(entry);
+        try {
+            // Create entry, add to AL (vector), sort, display.
+            Score entry = new Score(i, s);
+            scores.add(entry);
+            Collections.sort(scores, new player_comparator());
+            print(i + " " + s + " confirmed.");
+        }
+        catch (Exception e) {
+            print("Error: Invalid entry.");
+        }
+    finally {
+        // Print updates to 'console'.
+        for (Score score : scores) {
+        print(
+                score.get_initials() + " - " + 
+                score.get_score().toString());
+    }
+        score_controller.initials_entry.clear();
+        score_controller.score_entry.clear();
+        }
     }
 //--------------------------------------------------------------
+    class player_comparator implements Comparator<Score> {
+	@Override
+	public int compare(Score player_1, Score player_2) {
+		int score_1 = player_1.get_score();
+		int score_2 = player_2.get_score();
+ 
+		if (score_1 > score_2) {
+			return 1;
+		} else if (score_2 < score_1) {
+			return -1;
+		} else { return 0; }
+	}
+    }
+//--------------------------------------------------------------
+    public void print(String str) {
+        score_controller.ta_console.appendText("\n" + str);
+    }
+//--------------------------------------------------------------
+
 }
