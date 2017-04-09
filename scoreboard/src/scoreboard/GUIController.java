@@ -38,17 +38,14 @@ public class GUIController implements Initializable {
     }
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
     }
     
-    public void read_file() {
-        
+    private void handleButtonAction(ActionEvent event) {
+
     }
     
     public void add_score(String initials, Integer score) {

@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Scoreboard extends Application {
     
@@ -39,7 +40,11 @@ public class Scoreboard extends Application {
         Scene sc_score = new Scene(enter_score);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
+        st_score.initStyle(StageStyle.UNDECORATED); // Includes false resize.
+        
         st_score.show();
+        
+        sc_score.setOnKeyReleased(new KeyPressed());
     }
     /**
      * @param args the command line arguments
@@ -53,10 +58,10 @@ public class Scoreboard extends Application {
         public void handle(KeyEvent e) {
             KeyCode kcKey = e.getCode();
             switch (kcKey) {
-            case Q:
-                    System.exit(0);
+            case ENTER:
+                System.out.println("Enter pressed.");
             default:
-                    break;
+                 break;
             }
         }
     }
