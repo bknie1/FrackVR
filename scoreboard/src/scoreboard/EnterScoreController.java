@@ -26,8 +26,8 @@ public class EnterScoreController implements Initializable {
 //  private HBox actionParent;
 //  private HBox okParent;
     protected Button bt_enter;
-    private TextField initials_entry;
-    private TextField score_entry;
+    protected TextField initials_entry;
+    protected TextField score_entry;
 //--------------------------------------------------------------
     /**
      * Initializes the controller class.
@@ -38,11 +38,20 @@ public class EnterScoreController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Enter Score Controller created.");
     }
-    public void get_score() {
-        System.out.println("Getting score.");
+    
+    public String get_initials() {
+        String initials = "AAA";
+        
+        return initials;
     }
-
+    
+    public String get_score() {
+        String score = "0";
+        
+        return score;
+    }
+    
     void bt_enter(EventHandler<ActionEvent> eventHandler) {
-        System.out.println("OK - Inside controller.");
+        
     }
 }

@@ -5,6 +5,7 @@
  */
 package scoreboard;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -42,8 +43,6 @@ public class Scoreboard extends Application {
         // Don't forget the type cast.
         board_controller = (BoardController)loader.getController();
 
-        board_controller.update();
-        
         Scene sc_board = new Scene(root);
         stage.setScene(sc_board);
         stage.setTitle("VRAC-MAN High Scores");
@@ -59,8 +58,6 @@ public class Scoreboard extends Application {
         // Accessing getController() through the instance.
         // Don't forget the type cast.
         score_controller = (EnterScoreController)loader.getController();
-
-        score_controller.get_score();
         
         Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
@@ -99,11 +96,19 @@ public class Scoreboard extends Application {
     class Add_Score implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent event) {
-            System.out.println("Click Testing.");
+            new_score();
         }
         public void handle() {
-            System.out.println("Enter Testing.");
+            new_score();
         }
+    }
+//--------------------------------------------------------------
+    public void new_score() {
+        String i, s;
+        i = score_controller.get_initials();
+        s = score_controller.get_score();
+        
+        System.out.println(i + " " + s);
     }
 //--------------------------------------------------------------
 }
