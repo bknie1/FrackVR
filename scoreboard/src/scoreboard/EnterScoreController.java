@@ -38,7 +38,7 @@ public class EnterScoreController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Enter Score Controller created.");
     }
-    
+//--------------------------------------------------------------
     public String get_initials() {
         String initials = "AAA";
         initials = initials_entry.getText(0, 3);
@@ -46,14 +46,27 @@ public class EnterScoreController implements Initializable {
         initials = initials.toUpperCase();
         return initials;
     }
-    
+//--------------------------------------------------------------
     public Integer get_score() {
         String score = "0";
         score = score_entry.getText();
         score = score.trim();
-        return Integer.parseInt(score);
+        if (isNumeric(score)) {
+            return Integer.parseInt(score);
+        }
+        return 0;
     }
-    
+//--------------------------------------------------------------
+    public boolean isNumeric(String str) {  
+        try {
+            Integer i = Integer.parseInt(str);  
+        }
+        catch(NumberFormatException nfe) {  
+            return false;
+        }
+        return true;  
+    }
+//--------------------------------------------------------------
     void bt_enter(EventHandler<ActionEvent> eventHandler) {
         
     }
