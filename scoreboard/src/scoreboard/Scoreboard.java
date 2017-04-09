@@ -7,6 +7,7 @@ package scoreboard;
 
 import java.util.ArrayList;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 //--------------------------------------------------------------
 public class Scoreboard extends Application {
-    
     // For GUI element interaction.
     static BoardController board_controller;
     static EnterScoreController score_controller;
@@ -26,8 +26,12 @@ public class Scoreboard extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        // Scene Setup
         board_scene(stage);
         score_scene();
+        
+        // Listeners: Must be AFTER Scene Setup/controller assignment.
+        score_controller.bt_enter.setOnAction(new Add_Score() );
     }
 //--------------------------------------------------------------
     public void board_scene(Stage stage) throws Exception {
@@ -46,7 +50,7 @@ public class Scoreboard extends Application {
         stage.show();
     }
 //--------------------------------------------------------------
-    public void score_scene() throws Exception {
+    public void score_scene() throws Exception {        
         Stage st_score = new Stage();
         
         //Set up instance instead of using static load() method.
@@ -57,7 +61,7 @@ public class Scoreboard extends Application {
         score_controller = (EnterScoreController)loader.getController();
 
         score_controller.get_score();
-
+        
         Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
@@ -80,7 +84,8 @@ public class Scoreboard extends Application {
             KeyCode kcKey = e.getCode();
             switch (kcKey) {
             case ENTER:
-                update_scores();
+            Add_Score score = new Add_Score();
+            score.handle();
             default:
                  break;
             }
@@ -88,6 +93,16 @@ public class Scoreboard extends Application {
 //--------------------------------------------------------------
         private void update_scores() {
             System.out.println("Updating scores.");
+        }
+//--------------------------------------------------------------
+    }
+    class Add_Score implements EventHandler<ActionEvent> {
+        @Override
+        public void handle(ActionEvent event) {
+            System.out.println("Click Testing.");
+        }
+        public void handle() {
+            System.out.println("Enter Testing.");
         }
     }
 //--------------------------------------------------------------

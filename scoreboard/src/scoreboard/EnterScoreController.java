@@ -7,11 +7,13 @@ package scoreboard;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+// import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -23,7 +25,7 @@ public class EnterScoreController implements Initializable {
     // These elements don't require interaction.
 //  private HBox actionParent;
 //  private HBox okParent;
-    private Button bt_enter;
+    protected Button bt_enter;
     private TextField initials_entry;
     private TextField score_entry;
 //--------------------------------------------------------------
@@ -38,5 +40,9 @@ public class EnterScoreController implements Initializable {
     }
     public void get_score() {
         System.out.println("Getting score.");
+    }
+
+    void bt_enter(EventHandler<ActionEvent> eventHandler) {
+        System.out.println("OK - Inside controller.");
     }
 }
