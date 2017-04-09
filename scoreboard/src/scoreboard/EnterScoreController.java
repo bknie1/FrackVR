@@ -26,8 +26,8 @@ public class EnterScoreController implements Initializable {
 //  private HBox actionParent;
 //  private HBox okParent;
     protected Button bt_enter;
-    protected TextField initials_entry;
-    protected TextField score_entry;
+    public TextField initials_entry;
+    public TextField score_entry;
 //--------------------------------------------------------------
     /**
      * Initializes the controller class.
@@ -41,13 +41,16 @@ public class EnterScoreController implements Initializable {
     
     public String get_initials() {
         String initials = "AAA";
-        
+        initials = initials_entry.getText(0, 3);
+        initials = initials.trim();
+        initials = initials.toUpperCase();
         return initials;
     }
     
     public String get_score() {
         String score = "0";
-        
+        score = score_entry.getText();
+        score = score.trim();
         return score;
     }
     
