@@ -34,5 +34,8 @@ public class EnterScoreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Enter Score Controller created.");
-    }       
+    }
+    public void get_score() {
+        System.out.println("Getting score.");
+    }
 }

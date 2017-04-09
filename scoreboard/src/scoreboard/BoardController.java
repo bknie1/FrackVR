@@ -33,16 +33,16 @@ public class BoardController implements Initializable {
     private Label lbl_eight;
     private Label lbl_nine;
     private Label lbl_ten;
-    private Label score_1;
-    private Label score_2;
-    private Label score_3;
-    private Label score_4;
-    private Label score_5;
-    private Label score_6;
-    private Label score_7;
-    private Label score_8;
-    private Label score_9;
-    private Label score_10;
+    protected Label score_1;
+    protected Label score_2;
+    protected Label score_3;
+    protected Label score_4;
+    protected Label score_5;
+    protected Label score_6;
+    protected Label score_7;
+    protected Label score_8;
+    protected Label score_9;
+    protected Label score_10;
 //--------------------------------------------------------------
     /**
      * Initializes the controller class.
@@ -52,5 +52,8 @@ public class BoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Board Controller created.");
-    }    
+    }
+    public void update() {
+        System.out.println("Updating scores.");
+    }
 }

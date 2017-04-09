@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 //--------------------------------------------------------------
 public class Scoreboard extends Application {
+    
+    static BoardController board_controller;
+    static EnterScoreController score_controller;
+    
     @Override
     public void start(Stage stage) throws Exception {
         board_scene(stage);
@@ -23,23 +27,34 @@ public class Scoreboard extends Application {
     }
 //--------------------------------------------------------------
     public void board_scene(Stage stage) throws Exception {
-        Parent board = 
-            FXMLLoader.load(getClass().getResource("Board.fxml"));
-        Scene sc_board = new Scene(board);
+        //Set up instance instead of using static load() method.
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Board.fxml"));
+        Parent root = loader.load();
+        // Accessing getController() through the instance.
+        // Don't forget the type cast.
+        board_controller = (BoardController)loader.getController();
+
+        board_controller.update();
         
+        Scene sc_board = new Scene(root);
         stage.setScene(sc_board);
         stage.setTitle("VRAC-MAN High Scores");
         stage.show();
-        
-        sc_board.setOnKeyReleased(new KeyPressed());
     }
 //--------------------------------------------------------------
     public void score_scene() throws Exception {
         Stage st_score = new Stage();
-        Parent enter_score = 
-            FXMLLoader.load(getClass().getResource("EnterScore.fxml"));
-        Scene sc_score = new Scene(enter_score);
         
+        //Set up instance instead of using static load() method.
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EnterScore.fxml"));
+        Parent root = loader.load();
+        // Accessing getController() through the instance.
+        // Don't forget the type cast.
+        score_controller = (EnterScoreController)loader.getController();
+
+        score_controller.get_score();
+
+        Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
         st_score.initStyle(StageStyle.UNDECORATED); // Includes false resize.
@@ -61,10 +76,14 @@ public class Scoreboard extends Application {
             KeyCode kcKey = e.getCode();
             switch (kcKey) {
             case ENTER:
-                System.out.println("Enter pressed.");
+                update_scores();
             default:
                  break;
             }
+        }
+//--------------------------------------------------------------
+        private void update_scores() {
+            System.out.println("Updating scores.");
         }
     }
 //--------------------------------------------------------------
