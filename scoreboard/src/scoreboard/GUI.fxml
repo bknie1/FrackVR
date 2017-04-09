@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="main_anchor" maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoreboard.GUIController">
+    <children>
+      <Rectangle fx:id="divider" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="475.0" layoutX="886.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="20.0" />
+        <Label fx:id="lbl_title" alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="25.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25; -fx-border-color: YELLOW; -fx-border-width: 20; -fx-background-color: BLUE;" text="V R A C - M A N " textFill="#fff600">
+         <font>
+            <Font name="Gameplay Regular" size="72.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom threshold="0.0" />
+         </effect></Label>
+      <Label fx:id="lbl_one" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="200.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="1 )" textFill="GOLD">
+         <font>
+            <Font name="Gameplay Regular" size="96.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_two" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="300.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="2 )" textFill="SILVER">
+         <font>
+            <Font name="Gameplay Regular" size="72.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_three" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="400.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="3 )" textFill="#7f4f22">
+         <font>
+            <Font name="Gameplay Regular" size="64.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_four" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="500.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="4 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_five" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="600.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="5 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_six" alignment="CENTER" contentDisplay="CENTER" layoutX="900.0" layoutY="200.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="6 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_seven" alignment="CENTER" contentDisplay="CENTER" layoutX="900.0" layoutY="300.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="7 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_eight" alignment="CENTER" contentDisplay="CENTER" layoutX="900.0" layoutY="400.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="8 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_nine" alignment="CENTER" contentDisplay="CENTER" layoutX="900.0" layoutY="500.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="9 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="lbl_ten" alignment="CENTER" contentDisplay="CENTER" layoutX="900.0" layoutY="600.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25;" text="10 )" textFill="AQUA">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_1" layoutX="200.0" layoutY="200.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="tBD - ????" textFill="GOLD" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="96.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_2" layoutX="200.0" layoutY="300.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="SILVER" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="72.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_3" layoutX="200.0" layoutY="400.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="#7f4f22" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="64.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_4" layoutX="200.0" layoutY="500.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_5" layoutX="200.0" layoutY="600.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_6" layoutX="1050.0" layoutY="200.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_7" layoutX="1050.0" layoutY="300.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_8" layoutX="1050.0" layoutY="400.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_9" layoutX="1050.0" layoutY="500.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label fx:id="score_10" layoutX="1050.0" layoutY="600.0" minHeight="150.0" minWidth="750.0" style="-fx-label-padding: 25;" text="TBD - ????" textFill="AQUA" textOverrun="CLIP">
+         <font>
+            <Font name="Gameplay Regular" size="48.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</AnchorPane>
