@@ -20,8 +20,9 @@ import javafx.scene.layout.HBox;
  */
 public class EnterScoreController implements Initializable {
     @FXML
-    private HBox actionParent;
-    private HBox okParent;
+    // These elements don't require interaction.
+//  private HBox actionParent;
+//  private HBox okParent;
     private Button bt_enter;
     private TextField initials_entry;
     private TextField score_entry;

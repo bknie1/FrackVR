@@ -5,6 +5,7 @@
  */
 package scoreboard;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +18,11 @@ import javafx.stage.StageStyle;
 //--------------------------------------------------------------
 public class Scoreboard extends Application {
     
+    // For GUI element interaction.
     static BoardController board_controller;
     static EnterScoreController score_controller;
+    // Stores all player information.
+    ArrayList<Score> scores;
     
     @Override
     public void start(Stage stage) throws Exception {

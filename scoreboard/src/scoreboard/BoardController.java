@@ -20,19 +20,20 @@ import javafx.scene.shape.Rectangle;
  */
 public class BoardController implements Initializable {
     @FXML
-    private AnchorPane main_anchor;
-    private Rectangle divider;
-    private Label lbl_title;
-    private Label lbl_one;
-    private Label lbl_two;
-    private Label lbl_three;
-    private Label lbl_four;
-    private Label lbl_five;
-    private Label lbl_six;
-    private Label lbl_seven;
-    private Label lbl_eight;
-    private Label lbl_nine;
-    private Label lbl_ten;
+    // These elements don't require interaction.
+//  private AnchorPane main_anchor;
+//  private Rectangle divider;
+//  private Label lbl_title;
+//  private Label lbl_one;
+//  private Label lbl_two;
+//  private Label lbl_three;
+//  private Label lbl_four;
+//  private Label lbl_five;
+//  private Label lbl_six;
+//  private Label lbl_seven;
+//  private Label lbl_eight;
+//  private Label lbl_nine;
+//  private Label lbl_ten;
     protected Label score_1;
     protected Label score_2;
     protected Label score_3;
