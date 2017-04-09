@@ -104,7 +104,8 @@ public class Scoreboard extends Application {
     }
 //--------------------------------------------------------------
     public void new_score() {
-        String i, s;
+        String i;
+        Integer s;
         i = score_controller.get_initials();
         s = score_controller.get_score();
         

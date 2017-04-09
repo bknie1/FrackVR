@@ -47,11 +47,11 @@ public class EnterScoreController implements Initializable {
         return initials;
     }
     
-    public String get_score() {
+    public Integer get_score() {
         String score = "0";
         score = score_entry.getText();
         score = score.trim();
-        return score;
+        return Integer.parseInt(score);
     }
     
     void bt_enter(EventHandler<ActionEvent> eventHandler) {
