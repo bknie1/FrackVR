@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="main_anchor" maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoreboard.GUIController">
+<AnchorPane id="AnchorPane" fx:id="main_anchor" maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scoreboard.BoardController">
     <children>
       <Rectangle fx:id="divider" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="475.0" layoutX="886.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="20.0" />
         <Label fx:id="lbl_title" alignment="CENTER" contentDisplay="CENTER" layoutX="375.0" layoutY="25.0" minHeight="150.0" minWidth="200.0" style="-fx-label-padding: 25; -fx-border-color: YELLOW; -fx-border-width: 20; -fx-background-color: BLUE;" text="V R A C - M A N " textFill="#fff600">
