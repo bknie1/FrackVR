@@ -6,6 +6,7 @@
 package scoreboard;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,7 +55,7 @@ public class BoardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Board Controller created.");
     }
-    public void update() {
+    public void update(ArrayList<Score> scores) {
         System.out.println("Updating scores.");
     }
 }

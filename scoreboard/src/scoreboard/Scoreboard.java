@@ -65,9 +65,8 @@ public class Scoreboard extends Application {
         Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
-        st_score.initStyle(StageStyle.UNIFIED); // Includes false resize.
+        st_score.initStyle(StageStyle.UNDECORATED); // Includes false resize.
         st_score.show();
-        
         //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
         //System.setOut(out);
         
@@ -110,10 +109,7 @@ public class Scoreboard extends Application {
         Integer s;
         i = score_controller.get_initials();
         s = score_controller.get_score();
-        
-//        Score entry = new Score(i, s);
-//        entry.print();
-//        scores.add(entry);
+
         try {
             // Create entry, add to AL (vector), sort, display.
             Score entry = new Score(i, s);
@@ -121,33 +117,30 @@ public class Scoreboard extends Application {
             Collections.sort(scores, new player_comparator());
             print(i + " " + s + " confirmed.");
         }
+        
         catch (Exception e) {
             print("Error: Invalid entry.");
         }
-    finally {
-        // Print updates to 'console'.
-        for (Score score : scores) {
-        print(
-                score.get_initials() + " - " + 
+        
+        finally {
+            // Print updates to 'console'.
+            for (Score score : scores) {
+            print(
+                score.get_initials() + "\t\t\t" + 
                 score.get_score().toString());
-    }
+        }
         score_controller.initials_entry.clear();
         score_controller.score_entry.clear();
+        score_controller.initials_entry.requestFocus();
         }
+
     }
 //--------------------------------------------------------------
     class player_comparator implements Comparator<Score> {
 	@Override
-	public int compare(Score player_1, Score player_2) {
-		int score_1 = player_1.get_score();
-		int score_2 = player_2.get_score();
- 
-		if (score_1 > score_2) {
-			return 1;
-		} else if (score_2 < score_1) {
-			return -1;
-		} else { return 0; }
-	}
+	public int compare(Score self, Score other) {
+            return self.get_score().compareTo(other.get_score());
+        }
     }
 //--------------------------------------------------------------
     public void print(String str) {

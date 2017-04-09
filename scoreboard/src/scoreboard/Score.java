@@ -25,6 +25,6 @@ public class Score {
     }
     
     protected void print() {
-        System.out.println(initials + " " + score);
+        System.out.println(initials + "\t" + score);
     }
 }
