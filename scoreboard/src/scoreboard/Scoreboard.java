@@ -65,7 +65,7 @@ public class Scoreboard extends Application {
         Scene sc_score = new Scene(root);
         st_score.setScene(sc_score);
         st_score.setTitle("VRAC-MAN: Enter Score");
-        st_score.initStyle(StageStyle.UNDECORATED); // Includes false resize.
+        st_score.initStyle(StageStyle.UNIFIED); // Includes false resize.
         st_score.show();
         //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
         //System.setOut(out);
@@ -115,6 +115,7 @@ public class Scoreboard extends Application {
             Score entry = new Score(i, s);
             scores.add(entry);
             Collections.sort(scores, new player_comparator());
+            Collections.reverse(scores);
             print(i + " " + s + " confirmed.");
         }
         
@@ -128,12 +129,13 @@ public class Scoreboard extends Application {
             print(
                 score.get_initials() + "\t\t\t" + 
                 score.get_score().toString());
+            // Update scoreboard.
+            board_controller.update(scores);
         }
         score_controller.initials_entry.clear();
         score_controller.score_entry.clear();
         score_controller.initials_entry.requestFocus();
         }
-
     }
 //--------------------------------------------------------------
     class player_comparator implements Comparator<Score> {
