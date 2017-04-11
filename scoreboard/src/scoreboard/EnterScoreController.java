@@ -5,6 +5,7 @@
  */
 package scoreboard;
 
+import static java.lang.Math.abs;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -53,10 +54,15 @@ public class EnterScoreController implements Initializable {
         String score = "0";
         score = score_entry.getText();
         score = score.trim();
+        // Convert to int, remove neg values, check for excess.
         if (isNumeric(score)) {
-            return Integer.parseInt(score);
+            Integer num_score = Integer.parseInt(score);
+            num_score = abs(num_score);
+            if(num_score <= 9999) {
+                return Integer.parseInt(score);
+            }
         }
-        return 0;
+        return 0; // Number unrealistic or invalid.
     }
 //--------------------------------------------------------------
     public boolean isNumeric(String str) {  
