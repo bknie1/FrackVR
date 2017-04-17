@@ -5,8 +5,6 @@
  */
 package scoreboard;
 
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -109,7 +107,12 @@ public class Scoreboard extends Application {
         Integer s;
         i = score_controller.get_initials();
         s = score_controller.get_score();
-
+        
+        if(s == 0) {
+            print("Error: Invalid entry.");
+            return;
+        }
+        
         try {
             // Create entry, add to AL (vector), sort, display.
             Score entry = new Score(i, s);

@@ -57,12 +57,15 @@ public class EnterScoreController implements Initializable {
         // Convert to int, remove neg values, check for excess.
         if (isNumeric(score)) {
             Integer num_score = Integer.parseInt(score);
-            num_score = abs(num_score);
-            if(num_score <= 9999) {
+            if(num_score >= 0 && num_score <= 9999) {
                 return Integer.parseInt(score);
             }
         }
-        return 0; // Number unrealistic or invalid.
+        else {
+            System.out.println("Error: Invalid score entry.");
+            return 0; // Number unrealistic or invalid.
+        }
+        return 0; // Due diligence.
     }
 //--------------------------------------------------------------
     public boolean isNumeric(String str) {  
