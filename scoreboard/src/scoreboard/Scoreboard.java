@@ -118,6 +118,7 @@ public class Scoreboard extends Application {
         
         if(s == 0) {
             print("Error: Invalid entry.");
+            reset_entry();
             return;
         }
         
@@ -133,10 +134,12 @@ public class Scoreboard extends Application {
 
             }
             catch (IOException e) {
+                reset_entry();
                 print("Error: Input file stream.");
             }
         }
         catch (Exception e) {
+            reset_entry();
             print("Error: Invalid entry.");
         }
         
