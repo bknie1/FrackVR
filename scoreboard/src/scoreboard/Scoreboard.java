@@ -5,9 +5,17 @@
  */
 package scoreboard;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -65,8 +73,8 @@ public class Scoreboard extends Application {
         st_score.setTitle("VRAC-MAN: Enter Score");
         st_score.initStyle(StageStyle.UNIFIED); // Includes false resize.
         st_score.show();
-        //PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
-        //System.setOut(out);
+        
+        read_scores();
         
         sc_score.setOnKeyReleased(new KeyPressed());
     }
@@ -120,24 +128,22 @@ public class Scoreboard extends Application {
             Collections.sort(scores, new player_comparator());
             Collections.reverse(scores);
             print(i + " " + s + " confirmed.");
+            try {
+                write_scores();
+
+            }
+            catch (IOException e) {
+                print("Error: Input file stream.");
+            }
         }
-        
         catch (Exception e) {
             print("Error: Invalid entry.");
         }
         
         finally {
-            // Print updates to 'console'.
-            for (Score score : scores) {
-            print(
-                score.get_initials() + "\t\t\t" + 
-                score.get_score().toString());
-            // Update scoreboard.
-            board_controller.update(scores);
-        }
-        score_controller.initials_entry.clear();
-        score_controller.score_entry.clear();
-        score_controller.initials_entry.requestFocus();
+            print_scores();
+            board_controller.update(scores);  // Update scoreboard.
+            reset_entry();
         }
     }
 //--------------------------------------------------------------
@@ -152,5 +158,52 @@ public class Scoreboard extends Application {
         score_controller.ta_console.appendText("\n" + str);
     }
 //--------------------------------------------------------------
-
+    public void write_scores() throws IOException {
+        // Creates file output stream, designates it as an object
+        // output stream, writes scores array list to it.
+        // Delete 'scores' binary file to 'reset' scoreboard.
+        try {
+            FileOutputStream fos = new FileOutputStream("scores");
+            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+                oos.writeObject(scores);
+            fos.close(); // Close the FOS regardless of use.
+            print("Scores file updated.");
+            }
+        }
+        catch (FileNotFoundException ex) {
+            Logger.getLogger(Scoreboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+//--------------------------------------------------------------
+    public void read_scores() throws IOException, ClassNotFoundException {
+        try {
+            FileInputStream fis = new FileInputStream("scores");
+            try (ObjectInputStream ois = new ObjectInputStream(fis)) {
+                scores = (ArrayList<Score>) ois.readObject();
+            }
+            print("Scores file found. Loading scores.");
+            board_controller.update(scores);
+            print_scores();
+        }
+        catch (FileNotFoundException ex) {
+            print("Scores file not found. Scoreboard reset.");
+            Logger.getLogger(Scoreboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+//--------------------------------------------------------------
+    public void print_scores() {
+        // Print updates to 'console'.
+        scores.forEach((score) -> {
+            print(
+                score.get_initials() + "\t\t\t" +
+                score.get_score().toString());
+        });
+    }
+//--------------------------------------------------------------
+    public void reset_entry() {
+        score_controller.initials_entry.clear();
+        score_controller.score_entry.clear();
+        score_controller.initials_entry.requestFocus();
+    }
+//--------------------------------------------------------------
 }

@@ -1,10 +1,13 @@
 /**
  * @author brandon
-Hosts player data.
+Hosts player data. Stored in 'scores' binary file. Delete to
+* reset all player data.
  */
 package scoreboard;
 
-public class Score {
+import java.io.Serializable;
+
+public class Score implements Serializable {
 
     private String initials = "TBD";
     private Integer score = 0;
