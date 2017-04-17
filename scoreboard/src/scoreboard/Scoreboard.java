@@ -117,8 +117,8 @@ public class Scoreboard extends Application {
         s = score_controller.get_score();
         
         if(s == 0) {
-            print("Error: Invalid entry.");
             reset_entry();
+            print("Error: Invalid entry.");
             return;
         }
         
